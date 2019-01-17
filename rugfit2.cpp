@@ -1,5 +1,5 @@
 // rugfit2.cpp - calculates fit of rug to a floor
-// YOUR NAME(S), TODAY'S DATE
+// Tristan Hernandez, 16 Jan 2019
 
 #include <iostream>
 using namespace std;
@@ -9,15 +9,13 @@ using namespace std;
 class Rectangle {
 
 public:
-    // DECLARE a parameterized constructor to set the width and length
+    Rectangle(double w = 1.0, double l = 1.0);  //constructor
+    double getWidth() const;    //accessors
+    double getLength() const;
+    void setWidth(double w);    //mutators
+    void setLength(double l);
+    double area() const;        //area function
      
-    // DECLARE accessors to get the width and length
-
-    // DECLARE mutators to set the width and lengtg
-
-    // DECLARE (const) METHOD TO RETURN AREA OF RECTANGLE
-    
-
 private:
     double width, length;
 
@@ -28,15 +26,31 @@ private:
 // and this separate file would #include "rectangle.h")
 
 // IMPLEMENT CONSTRUCTOR USING INITIALIZATION LIST
-
-
+Rectangle::Rectangle(double w, double l){
+    width = w;
+    length = l;
+ }   
 // IMPLEMENT ACCESSORS and MUTATORS
+double Rectangle::getWidth() const{
+    return width;
+}
 
+double Rectangle::getLength() const{
+    return length;
+}
+
+void Rectangle::setWidth(double w){
+    width = w;
+}
+
+void Rectangle::setLength(double l){
+    length = l;
+}
 
 // IMPLEMENT THE AREA METHOD HERE
-
-
-
+double Rectangle::area() const{
+    return getLength() * getWidth();
+}
 
 // change main where instructed in UPPER CASE below
 // (usually would #include "rectangle.h" before main)
@@ -51,7 +65,10 @@ int main() {
     const Rectangle floor(width, length); // note: const object
 
     // RESET Rectangle NAMED "rug" FOR SIZES INPUT BY USER
-    
+    cout <<"enter width and length of rug: ";
+    cin >> width >> length;
+    rug.setLength(length);
+    rug.setWidth(width);
     
     
     // DO NOT CHANGE ANYTHING BELOW (if you do, you will earn 0 points,
